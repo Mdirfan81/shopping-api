@@ -11,12 +11,36 @@ const getAllProducts = (req, res) => {
 };
 
 const addElementToCard = (req, res) => {
+  // let payload = JSON.parse(req.body);
   try {
     if (req.body) {
       userShoppingArr.push(req.body);
+      return res.status(200).send("Item added successfully");
     }
-
-    return res.status(201).send("Item added successfully");
+  } catch (error) {
+    return error;
+  }
+};
+const removeElementToCard = (req, res) => {
+  // let payload = JSON.parse(req.body);
+  try {
+    if (req.body) {
+      let found = userShoppingArr.filter((ele) => {
+        if (ele.id === req.body.id) {
+          return true;
+        }
+        return false;
+      });
+      // userShoppingArr.push(req.body);
+      if (found) {
+        let fil = userShoppingArr.filter((ele) => ele.id != req.body.id);
+        userShoppingArr = [];
+        userShoppingArr = fil;
+        return res.status(200).send("Removed successfully");
+      } else {
+        return res.status(404).send("Item is not Present");
+      }
+    }
   } catch (error) {
     return error;
   }
@@ -41,7 +65,7 @@ const validateCoupon = (req, res) => {
   try {
     let coup = req.params.coupon;
     if (coup === coupons.coupons[0].code) {
-      userShoppingArr =[]
+      userShoppingArr = [];
       return res.status(200).send("Valid");
     } else {
       return res.status(200).send("Coupon is not valid");
@@ -57,4 +81,5 @@ module.exports = {
   allItemsInCard,
   getCoupons,
   validateCoupon,
+  removeElementToCard,
 };
