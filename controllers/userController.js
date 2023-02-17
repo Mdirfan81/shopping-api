@@ -9,7 +9,6 @@ const authUser = (req, res) => {
       }
     }
     return res.status(200).send("Not Found");
-
   } catch (error) {
     return error;
   }

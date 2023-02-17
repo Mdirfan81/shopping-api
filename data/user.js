@@ -1,14 +1,14 @@
-const user =[{
-    "username":"user1",
-    "password":"test",
-    "admin":false
-},
-{
-    "username":"admin",
-    "password":"test",
-    "admin":true
-}
+const user = [
+  {
+    username: "user1",
+    password: "test",
+    admin: false,
+  },
+  {
+    username: "admin",
+    password: "test",
+    admin: true,
+  },
+];
 
-]
-
-module.exports ={user}
+module.exports = { user };

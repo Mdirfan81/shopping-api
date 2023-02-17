@@ -1,5 +1,6 @@
 const data = require("../data/allProducts");
 const coupons = require("../data/coupons");
+
 let userShoppingArr = [];
 
 const getAllProducts = (req, res) => {
@@ -65,11 +66,20 @@ const validateCoupon = (req, res) => {
   try {
     let coup = req.params.coupon;
     if (coup === coupons.coupons[0].code) {
-      userShoppingArr = [];
-      return res.status(200).send("Valid");
+      // userShoppingArr = [];
+      return res.status(200).send(true);
     } else {
-      return res.status(200).send("Coupon is not valid");
+      return res.status(200).send(false);
     }
+  } catch (err) {
+    return err;
+  }
+};
+
+const deleteAllProduct = (req, res) => {
+  try {
+    userShoppingArr = [];
+    return res.status(200).send("Remove all item from card");
   } catch (err) {
     return err;
   }
@@ -82,4 +92,5 @@ module.exports = {
   getCoupons,
   validateCoupon,
   removeElementToCard,
+  deleteAllProduct,
 };

@@ -6,6 +6,7 @@ route.get("/getAllProducts", controller.getAllProducts);
 route.get("/getCard", controller.allItemsInCard);
 route.get("/coupons", controller.getCoupons);
 route.get("/validCoupon/:coupon", controller.validateCoupon);
+route.get("/remove", controller.deleteAllProduct);
 
 route.post("/addItem", controller.addElementToCard);
 route.post("/removeItem", controller.removeElementToCard);
