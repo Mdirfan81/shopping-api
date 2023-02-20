@@ -15,7 +15,7 @@
 ## 1. Products
 https://shopping-fake-api-with-coupon-code.onrender.com/products
 
-1.1.  GET => /getAllProducts => fetching all products
+### 1.1.  GET => /getAllProducts => fetching all products
 1.2. GET =>   /getCard => Fetch all products which added to card.
 1.3. GET => /coupons => Fetch all coupons
 1.4. GET => /validCoupon/:coupon => Check the coupon is valid or not
